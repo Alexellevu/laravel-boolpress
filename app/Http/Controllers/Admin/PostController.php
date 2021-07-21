@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Layout;
+use App\Post;
 use Illuminate\Http\Request;
 
-class LayoutController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class LayoutController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Layout  $layout
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Layout $layout)
+    public function show(Post $post)
     {
         //
     }
@@ -53,10 +53,10 @@ class LayoutController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Layout  $layout
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Layout $layout)
+    public function edit(Post $post)
     {
         //
     }
@@ -65,10 +65,10 @@ class LayoutController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Layout  $layout
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Layout $layout)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -76,10 +76,10 @@ class LayoutController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Layout  $layout
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Layout $layout)
+    public function destroy(Post $post)
     {
         //
     }

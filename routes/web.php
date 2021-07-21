@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 /* Guest Routes */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.welcome');
 });
-Route::resource('layouts', LayoutController::class)->only('index','show');
+Route::resource('posts', PostController::class)->only('index','show');
 
 
 Auth::routes();
@@ -28,7 +28,7 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function() {
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('layouts', LayoutController::class);
+Route::resource('posts', PostController::class);
 
 
 });
