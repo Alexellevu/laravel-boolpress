@@ -84,7 +84,7 @@
                                         <a class="nav-link {{Route::currentRouteName() === 'admin.dashboard' ? 'active' : ''}}" aria-current="page" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Posts</a>
+                                    <a class="nav-link" href="{{route('admin.posts.index')}}">Posts</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Users</a>
