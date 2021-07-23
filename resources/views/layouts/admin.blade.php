@@ -15,6 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
@@ -73,8 +75,33 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
-            <a href="{{route ('admin.posts.index')}}">Post</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                            <aside>
+                                <ul class="nav flex-column">
+                                <li class="nav-item nav-pills">
+                                        <a class="nav-link {{Route::currentRouteName() === 'admin.dashboard' ? 'active' : ''}}" aria-current="page" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Posts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Users</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Tags</a>
+                                </li>
+                                
+                            </aside>
+
+                    </div>
+                    <div class=" col-sm-9">
+                         @yield('content')
+                    </div>
+                </div>
+            </div>
+   
         </main>
     </div>
 </body>
