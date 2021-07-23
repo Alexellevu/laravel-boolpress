@@ -74,6 +74,7 @@
 
         <main class="py-4">
             @yield('content')
+            <a href="{{route ('admin.posts.index')}}">Post</a>
         </main>
     </div>
 </body>

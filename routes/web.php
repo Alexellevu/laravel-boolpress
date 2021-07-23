@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('guest.welcome');
 });
+
 Route::resource('posts', PostController::class)->only('index','show');
 
 
