@@ -2,7 +2,14 @@
 
 @section('content')
 
-<h1>All posts</h1>
+<div class="d-flex justify-content-between">
+    <h1>All posts</h1>
+    <div >
+        <a class="btn btn-primary" href=" {{route('admin.posts.create')}} ">Create new Post</a>
+
+    </div>
+</div>
+
 <table class="table table-striped table-inverse ">
   <thead class="thead-inverse">
     <tr>
