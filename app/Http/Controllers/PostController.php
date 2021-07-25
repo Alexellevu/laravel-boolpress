@@ -14,11 +14,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'DESC')->paginate(10);
+        
         return view('guest.posts.index', compact('posts'));
     }
 
-    
+
+
     /**
      * Display the specified resource.
      *
@@ -27,8 +29,12 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('guest.posts.show', compact('posts'));
+        return view('guest.posts.show', compact('post'));
     }
+
+
+
+
 
 
 }
