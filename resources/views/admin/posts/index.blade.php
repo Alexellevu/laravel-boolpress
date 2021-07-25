@@ -24,7 +24,7 @@
      @foreach($posts as $post)
        <tr>
         <td scope="row">{{$post->id}}</td>
-        <td> <img width="500" src="{{$post->image}}" alt="{{$post->title}}"> </td>
+        <td> <img width="200" src="{{$post->image}}" alt="{{$post->title}}"> </td>
         <td> {{$post->title}} </td>
         <td class="d-flex"> 
           <a href="{{route('admin.posts.show', $post->id)}}">

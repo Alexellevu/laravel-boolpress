@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* Guest Routes */
+/* Altre Pagine non connesse ad un entitá/modello  */
+Route::get('/', 'PageController@index');
+Route::get('/about', 'PageController@about');
+Route::get('/contacts', 'PageController@contacts');
 
-Route::get('/', function () {
-    return view('guest.welcome');
-});
-
-Route::resource('posts', PostController::class)->only('index','show');
+/* Posts per l'utente */
+Route::get('posts', 'PostController@index')->name('posts.index');
+Route::get('posts/{post}', 'PostController@show')->name('posts.show');
 
 
 Auth::routes();
