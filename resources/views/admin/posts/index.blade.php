@@ -26,16 +26,20 @@
         <td scope="row">{{$post->id}}</td>
         <td> <img width="500" src="{{$post->image}}" alt="{{$post->title}}"> </td>
         <td> {{$post->title}} </td>
-        <td> 
+        <td class="d-flex"> 
           <a href="{{route('admin.posts.show', $post->id)}}">
             <i class="fas fa-eye fa-sm fa-fw"></i> View 
           </a>
           <a href="{{ route('admin.posts.edit', $post->id)}}">
             <i class="fas fa-pencil-alt fa-sm fa-fw"></i> Edit 
           </a>
-          <a href="#">
-            <i class="fas fa-trash fa-sm fa-fw"></i> Delete
-          </a>
+         
+          <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn"><i class="fas fa-trash fa-xs fa-fw"></i></button>
+          </form>
+
         </td>
       </tr>
      @endforeach

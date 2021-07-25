@@ -80,7 +80,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required | max:255 | min:5',
+            'description' => 'required', // poteva essere nullable se impostato cosi in migration.
+            'image' => 'required',
+            'date' => 'required'
+        ]);
+        $post->update($validatedData);
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -91,6 +98,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('admin.posts.index');
     }
 }
