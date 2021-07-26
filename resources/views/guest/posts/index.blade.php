@@ -12,6 +12,11 @@
         </div>
     </div>
 
+    <a href="{{route('posts.show', $post->id)}}">
+            <i class="fas fa-eye fa-sm fa-fw"></i> View 
+          </a>
+
+
 @endforeach
 
 

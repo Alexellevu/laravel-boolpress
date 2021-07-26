@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 /* Guest Routes */
 /* Altre Pagine non connesse ad un entitá/modello  */
 Route::get('/', 'PageController@index');
-Route::get('/about', 'PageController@about');
-Route::get('/contacts', 'PageController@contacts');
+Route::get('about', 'PageController@about');
+Route::get('contacts', 'PageController@contacts');
 
 /* Posts per l'utente */
 Route::get('posts', 'PostController@index')->name('posts.index');
