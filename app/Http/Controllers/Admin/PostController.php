@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -40,11 +41,15 @@ class PostController extends Controller
         //ddd($request->all());
          $validatedData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'required',
+            'image' => 'required | image | max:500',
             'description' => 'required', // poteva essere nullable se impostato cosi in migration.
             'date'=> 'required'
            
         ]);
+        ddd($validatedData);
+        //Storage::put('post_images', $contents)       
+       
+
         Post::create($validatedData);
         return redirect()->route('admin.posts.index'); 
     }
