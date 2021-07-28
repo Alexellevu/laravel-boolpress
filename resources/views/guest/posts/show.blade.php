@@ -12,17 +12,18 @@
             <div class="card">
                 <img class="card-img-top" src="{{$post->image}}" alt="">
                 <div class="card-body">
-                <h4 class="card-title">{{$post->title}}</h4>
-                <p class="card-text">{{$post->description}}</p>
+                    <h4 class="card-title">{{$post->title}}</h4>
+                    <p class="card-text">{{$post->description}}</p>
+                </div>
+            <a href="{{route('posts.index')}}">back</a>
             </div>
-        </div>
     </div>
 
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
 @endsection

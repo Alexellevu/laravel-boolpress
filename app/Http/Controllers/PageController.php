@@ -8,16 +8,16 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('guest.welcome');
     }
 
     public function about()
     {
-        
+        return view('guest.about');
     }
 
-    public function contact()
+    public function contacts()
     {
-        
+        return view('guest.contacts');
     }
 }
