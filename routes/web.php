@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 /* Guest Routes */
 /* Altre Pagine non connesse ad un entitá/modello  */
-Route::get('/', 'PageController@index');
-Route::get('about', 'PageController@about');
-Route::get('contacts', 'PageController@contacts');
+Route::get('/', 'PageController@index')->name('home');
+Route::get('about', 'PageController@about')->name('about');
+Route::get('contacts', 'PageController@contacts')->name('contacts');
 
 /* Posts per l'utente */
 Route::get('posts', 'PostController@index')->name('posts.index');
@@ -32,7 +32,6 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
 
 Route::get('/', 'HomeController@index')->name('dashboard');
 Route::resource('posts', PostController::class);
-
 
 });
 
