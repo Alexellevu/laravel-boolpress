@@ -46,12 +46,16 @@ class PostController extends Controller
             'date'=> 'required'
            
         ]);
+        
         ddd($validatedData);
-        //Storage::put('post_images', $contents)       
+
+        $cover = Storage::disk('public')->put('posts_img', $request->cover);
+        $validatedData['cover'] = $cover;
        
 
+        ddd($validatedData);
         Post::create($validatedData);
-        return redirect()->route('admin.posts.index'); 
+        return redirect()->route('admin.posts.show'); 
     }
 
     /**

@@ -37,9 +37,10 @@
    </div>
 
    <div class="form-group">
-     <label for="image">Cover Image</label>
-   <input type="file" name="image" id="image">
-  </div>
+    <label for="cover">Cover Image</label>
+    <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Add a cover image" aria-describedby="coverImgHelper">
+    <small id="coverImgHelper" class="form-text text-muted">Add a cover image</small>
+    </div>
   @error('image')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
@@ -52,7 +53,6 @@
 
    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
 
 @endsection
 
