@@ -38,24 +38,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //ddd($request->all());
+        ddd($request->all());
          $validatedData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'required | image | max:500',
+            'cover' => 'required | image | max:500',
             'description' => 'required', // poteva essere nullable se impostato cosi in migration.
             'date'=> 'required'
            
         ]);
         
-        ddd($validatedData);
-
-        $cover = Storage::disk('public')->put('posts_img', $request->cover);
-        $validatedData['cover'] = $cover;
-       
-
-        ddd($validatedData);
-        Post::create($validatedData);
-        return redirect()->route('admin.posts.show'); 
+        
     }
 
     /**
