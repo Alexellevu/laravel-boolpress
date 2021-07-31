@@ -33,6 +33,11 @@
         <label for="image">Cover Image</label>   
         <input type="file" name="image" id="image">
       </div>
+      @error('image')
+      <div class="alert alert danger">
+        {{ $message }}
+      </div>
+      @enderror
    <div class="form-group">
       <label for="">Date</label>
       <input type="text" name="date" id="date" class="form-control" placeholder="Add a date" aria-describedby="titleHelper" value="{{old('date')}}">
