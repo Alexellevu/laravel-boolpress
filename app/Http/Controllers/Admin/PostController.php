@@ -50,7 +50,8 @@ class PostController extends Controller
    
         
         $cover = Storage::put('posts_images',$validatedData['image'] ); 
-        $validatedData['cover'] = $cover;
+    
+        $validatedData['image'] = $cover;
 
         Post::create($validatedData);
         return redirect()->route('admin.posts.index');
@@ -95,6 +96,14 @@ class PostController extends Controller
             'image' => 'required',
             'date' => 'required'
         ]);
+        ///ddd($request->hasFile('image'));//verifica se il file è dentro la richiesta
+        if(array_key_exists('image', $validatedData)){ //verifica se cè la chiave nell array
+              $cover = Storage::put('posts_images',$validatedData['image'] ); 
+              //ddd($cover);
+              $validatedData['image'] = $cover;
+        }
+      
+       
         $post->update($validatedData);
         return redirect()->route('admin.posts.index');
     }
