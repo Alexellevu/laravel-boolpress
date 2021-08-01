@@ -19,5 +19,12 @@ class PageController extends Controller
     public function contacts()
     {
         return view('guest.contacts');
+
+    }
+
+    public function sendForm(Request $request)
+    {
+        //ddd($request->all());
+        
     }
 }

@@ -41,7 +41,7 @@ class PostController extends Controller
        
          $validatedData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'required |max:100',
+            'image' => 'nullable |max:100',
             'description' => 'required', // poteva essere nullable se impostato cosi in migration.
             'date'=> 'required'
            
@@ -93,7 +93,7 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required | max:255 | min:5',
             'description' => 'required', // poteva essere nullable se impostato cosi in migration.
-            'image' => 'required',
+            'image' => 'nullabale | image | max:100',
             'date' => 'required'
         ]);
         ///ddd($request->hasFile('image'));//verifica se il file è dentro la richiesta
