@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -22,9 +23,17 @@ class PageController extends Controller
 
     }
 
-    public function sendForm(Request $request)
+    public function sendFormMail(Request $request)
     {
-        //ddd($request->all());
         
-    }
+        $validateData = $request->validate(
+            [
+            'name' => 'required',
+            'email' => 'required | email',
+            'message' => 'required'
+            ]
+        );
+        //ddd( $validateData);
+        return(new ContactFormMail($validateData))->render();
+     }
 }
