@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageController@index')->name('home');
 Route::get('about', 'PageController@about')->name('about');
 Route::get('contacts', 'PageController@contacts')->name('contacts');
-Route::post('contacts', 'PageController@sendForm')->name('contacts.send');
+Route::post('contacts', 'PageController@sendFormMail')->name('contacts.send');
 
 /* Posts per l'utente */
 Route::get('posts', 'PostController@index')->name('posts.index');
