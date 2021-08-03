@@ -21,12 +21,12 @@ Route::get('contacts', 'PageController@contacts')->name('contacts');
 Route::post('contacts', 'PageController@sendFormMail')->name('contacts.send');
 
 /* Posts per l'utente */
-Route::get('posts', 'PostController@index')->name('posts.index');
-Route::get('posts/{post}', 'PostController@show')->name('posts.show');
-
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+Route::get('posts', 'PostController@index')->name('posts.index');
+Route::get('posts/{post}', 'PostController@show')->name('posts.show');
 
 /* Admin Routes */
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function() {
@@ -36,10 +36,14 @@ Route::resource('posts', PostController::class);
 
 });
 
+/* 
+Categories table
+-migration
+-model
+-controller(resources nel namespace ADMIN)
+-seeder
+*/
 
 
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
