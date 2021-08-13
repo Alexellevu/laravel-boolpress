@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
@@ -27,7 +29,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -38,11 +41,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        //ddd($request->all());
        
          $validatedData = $request->validate([
             'title' => 'required | max:255 | min:5',
-            'image' => 'nullable |max:100',
+            'image' => 'nullable | max:100',
             'description' => 'required', // poteva essere nullable se impostato cosi in migration.
+            'category_id' => 'nullable | exists:categories,id',
             'date'=> 'required'
            
         ]);

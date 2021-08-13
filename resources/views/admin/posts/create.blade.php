@@ -29,6 +29,21 @@
       <label for="description">Description</label>
        <textarea class="form-control @error('body') is-invalid @enderror" name="description" id="description" rows="5" value="{{old('description')}}"></textarea>
    </div>
+
+   <div class="form-group">
+     <label for="category_id">Categories</label>
+     <select class="form-control" name="category_id" id="category_id">
+       <option selected disabled>Select a Category</option>
+       
+        @foreach($categories as $category)
+
+          <option value="{{$category->id}}">{{$category->name}}</option>
+        @endforeach
+
+     </select>
+   </div>
+
+
       <div class="form-group"> 
         <label for="image">Cover Image</label>   
         <input type="file" name="image" id="image">
